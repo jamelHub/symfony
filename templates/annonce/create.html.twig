@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% form_theme formArticle 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+<h1>creation d'un  annonce ! </h1>
+{{ form_start(formArticle) }}
+
+{{ form_row(formArticle.title,{'attr':{'placeholder':"Title de l'article"}})}}
+{{ form_row(formArticle.content,{'attr':{'placeholder':"content de l'article"}})}}
+{{ form_row(formArticle.Prix,{'attr':{'placeholder':"prix de l'article"}})}}
+{{ form_row(formArticle.image,{'attr':{'placeholder':"image de l'article"}})}}
+
+<button type="submit" class="btn btn-success">
+{% if editMode %}
+    Enregistre  les modifications 
+    {% else %}
+    Ajouter l'article 
+    {% endif %}
+</button>
+{{form_end(formArticle)}}
+{% endblock %}
